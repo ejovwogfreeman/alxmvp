@@ -1,0 +1,7 @@
+#Environment
+venv/
+.env
+hirehub/site.db
+hirehub/\__pycache\__/**
+#Others
+.DS_Store

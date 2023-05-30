@@ -1,0 +1,6 @@
+FLASK_APP=hirehub
+FLASK_ENV=development
+FLASK_RUN_PORT=
+
+MAIL_USERNAME=webmastaz2019@gmail.com
+MAIL_APP_PASSWORD=bnaewwpyvxcaupsr

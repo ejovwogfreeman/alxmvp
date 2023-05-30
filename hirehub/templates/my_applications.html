@@ -1,0 +1,41 @@
+    {% extends "layout.html" %}
+    {% block content %}
+        <h1 class="mb-3">Job Posts by {{ user.username }}</h1>
+        {% for selected_job in selected_jobs %}
+            <article class="media content-section">
+              <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + user.image_file) }}">
+              <div class="media-body">
+                <div class="article-metadata">
+                  <a class="mr-2" href="{{ url_for('users.user_posts', username=user.username) }}">{{ user.username }}</a>
+                  <small class="text-muted">{{ selected_job.date_updated.strftime('%Y-%m-%d') }}</small>
+                  <div class="container">
+                    <div class="row">
+                      <h2 class="article-title mb-2">{{ selected_job.job_title }}</h2>
+                    </div>
+                    <div class="row">
+                      <img class="img-thumbnail img-fluid shadow-sm job_post_flyer" src="{{ url_for('static', filename='job_desc_images/' + selected_job.job_desc_image) }}">
+                    </div>
+                    <div class="row">
+                      <div class="mb-2"><b>Company/Organisation:</b> {{ selected_job.company_name}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="mb-2"><b>Hiring position:</b> {{ selected_job.position }}</div>
+                    </div>
+                    <div class="row">
+                      <div class="mb-2 "><b><u>Job Description</u></b></div>
+                    </div>
+                  </div>
+                  <p class="article-content">{{ selected_job.job_desc }}</p>
+                  {% if current_user.role == 'student' %}
+                  <div class="mb-2">
+                    <button type="button" class="btn btn-sm btn-secondary mt-1 mb-1 text-light" disabled>Apply Now</button>
+                  <a class="btn btn-danger btn-sm m-1 text-light">Report Job</a>
+                  </div>
+                  {% endif %}
+                </div>
+              </div>
+            </article>
+        {% endfor %}
+     
+    {% endblock content %}
+    

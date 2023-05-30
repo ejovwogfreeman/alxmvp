@@ -1,0 +1,160 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    <form method="POST" action="" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">{{ legend }}</legend>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                                    <label class="text-center">Current Image</label>
+                                    <img class="img-thumbnail img-fluid shadow-sm job_post_flyer" src="{{ image_file }}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        {{ form.job_title.label(class="form-control-label") }}
+                        {% if form.job_title.errors %}
+                            {{ form.job_title(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.job_title.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.job_title(class="form-control form-control-lg") }}
+                        {% endif %}
+                      </div>
+                    <div class="col-md-6 mb-3">
+                        {{ form.company_name.label(class="form-control-label") }}
+                        {% if form.company_name.errors %}
+                            {{ form.company_name(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.company_name.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.company_name(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-8 mb-3">
+                        {{ form.desired_major.label(class="form-control-label") }}
+                {% if form.desired_major.errors %}
+                    {{ form.desired_major(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.desired_major.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.desired_major(class="form-control form-control-lg") }}
+                {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-12 mb-3">
+                        {{ form.job_desc.label(class="form-control-label") }}
+                {% if form.job_desc.errors %}
+                    {{ form.job_desc(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.job_desc.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.job_desc(class="form-control form-control-lg") }}
+                {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        {{ form.job_desc_image.label(class="form-control-label") }} 
+                        <br>e.g png, jpg &  jpeg
+                {% if form.job_desc_image.errors %}
+                    {{ form.job_desc_image(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.job_desc_image.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.job_desc_image(class="form-control form-control-md") }}
+                {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        {{ form.job_file.label(class="form-control-label") }} 
+                        <br>e.g pdf, docx
+                {% if form.job_file.errors %}
+                    {{ form.job_file(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.job_file.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.job_file(class="form-control form-control-md") }}
+                {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        {{ form.email.label(class="form-control-label") }}
+                {% if form.email.errors %}
+                    {{ form.email(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email(class="form-control form-control-lg") }}
+                {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    {{ form.position.label(class="form-control-label") }}
+                {% if form.position.errors %}
+                    {{ form.position(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.position.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.position(class="form-check me-1") }}
+                {% endif %}
+                </div>
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+        
+        <legend class="border-bottom mb-4 text-center">Job Description File</legend>
+            <fieldset class="form-group">
+                <iframe src='{{ job_desc_file }}' width='690px' height='623px' frameborder='0'>This is an embedded <a target='_blank' href='#'>Microsoft Office</a> document, powered by <a target='_blank' href='http://office.com/webapps'>Office Online</a>.</iframe>
+            </fieldset>
+    </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    <div class="media">
+      <img class="rounded-circle account-img" src="{{ image_file }}">
+      <div class="media-body">
+        <h2 class="account-heading">{{ application.first_name }} {{ application.last_name }}</h2>
+        <p class="text-secondary">{{ application.email }}</p>
+        <p class="text-secondary">({{ user.role }})</p>
+        <div class="mt-4">
+            <div class="row mt-2">
+                <!-- <h5><div class="col-md-12"> First Name: <div class="display-4">{{ application.first_name }}</div></h5> -->
+                <h5>
+                    <div class="col-md-12"><b>First Name: </b><div class="">{{ application.first_name }}</div>
+                </h5>
+            </div>
+            <div class="row">
+                <h5>
+                    <div class="col-md-12"><b>Last Name: </b>{{ application.last_name }}</div>
+                </h5>
+            </div>
+            <div class="row mt-2">
+                <h5>
+                    <div class="col-md-4"><b>Email: </b>{{ application.email }}</div>
+                </h5>    
+            </div>
+            <div class="row mt-2">
+                <h5>
+                    <div class="col-md-4"><b>Phone: </b>{{ application.phone }}</div>
+                </h5>
+            </div>
+            <div class="row mt-2">
+                <h5><div class="col-md-12 text-center"><b><u>{{ application.cover_letter_name }}</u></b></div></h5>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    <iframe src='{{ cover_letter_file }}' width='500px' height='600px' frameborder='0'>This is an embedded <a target='_blank' href='#'>Microsoft Office</a> document, powered by <a target='_blank' href='http://office.com/webapps'>Office Online</a>.</iframe>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <h5><div class="col-md-12 text-center"><b><u>{{ application.resume_name }}</u></b></div></h5>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    <iframe src='{{ resume_file }}' width='500px' height='600px' frameborder='0'>This is an embedded <a target='_blank' href='#'>Microsoft Office</a> document, powered by <a target='_blank' href='http://office.com/webapps'>Office Online</a>.</iframe>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock content %}
